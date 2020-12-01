@@ -102,6 +102,7 @@ def edit(plant_id):
 
 @app.route('/delete/<plant_id>', methods=['POST'])
 def delete(plant_id):
+    '''Removes a plant and all its harvests from the database'''
     mongo.db.plants.delete_one({"_id":ObjectId(plant_id)})
     mongo.db.harvests.delete_many({'plant_id':plant_id})
     return redirect(url_for('plants_list'))
