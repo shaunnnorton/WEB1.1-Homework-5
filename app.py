@@ -8,7 +8,7 @@ from bson.objectid import ObjectId
 
 app = Flask(__name__)
 
-app.config["MONGO_URI"] = "mongodb://localhost:27017/plantsDatabase"
+#app.config["MONGO_URI"] = "mongodb://localhost:27017/plantsDatabase"
 mongo = PyMongo(app)
 
 ############################################################
@@ -108,5 +108,5 @@ def delete(plant_id):
     return redirect(url_for('plants_list'))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
 
